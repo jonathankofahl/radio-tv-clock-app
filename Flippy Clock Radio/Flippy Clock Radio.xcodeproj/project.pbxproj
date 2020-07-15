@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		1242300824BF8A6000A5296F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242300724BF8A6000A5296F /* AppDelegate.swift */; };
-		1242300C24BF8A6000A5296F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242300B24BF8A6000A5296F /* ViewController.swift */; };
+		1242300C24BF8A6000A5296F /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242300B24BF8A6000A5296F /* RadioViewController.swift */; };
 		1242300F24BF8A6000A5296F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1242300D24BF8A6000A5296F /* Main.storyboard */; };
 		1242301124BF8A6300A5296F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1242301024BF8A6300A5296F /* Assets.xcassets */; };
 		1242301424BF8A6300A5296F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1242301224BF8A6300A5296F /* LaunchScreen.storyboard */; };
+		1242301C24BF999D00A5296F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242301B24BF999D00A5296F /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1242300424BF8A6000A5296F /* Flippy Clock Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flippy Clock Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1242300724BF8A6000A5296F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1242300B24BF8A6000A5296F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1242300B24BF8A6000A5296F /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		1242300E24BF8A6000A5296F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1242301024BF8A6300A5296F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1242301324BF8A6300A5296F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1242301524BF8A6300A5296F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1242301B24BF999D00A5296F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				1242300724BF8A6000A5296F /* AppDelegate.swift */,
-				1242300B24BF8A6000A5296F /* ViewController.swift */,
+				1242300B24BF8A6000A5296F /* RadioViewController.swift */,
+				1242301B24BF999D00A5296F /* SettingsViewController.swift */,
 				1242300D24BF8A6000A5296F /* Main.storyboard */,
 				1242301024BF8A6300A5296F /* Assets.xcassets */,
 				1242301224BF8A6300A5296F /* LaunchScreen.storyboard */,
@@ -135,7 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1242300C24BF8A6000A5296F /* ViewController.swift in Sources */,
+				1242301C24BF999D00A5296F /* SettingsViewController.swift in Sources */,
+				1242300C24BF8A6000A5296F /* RadioViewController.swift in Sources */,
 				1242300824BF8A6000A5296F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
