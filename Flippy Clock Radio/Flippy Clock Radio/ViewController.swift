@@ -23,13 +23,33 @@ class ViewController: UIViewController {
        @IBOutlet weak var slider: UISlider!
        @IBOutlet weak var labelVolume: UILabel!
        @IBOutlet weak var settingsButton: UIButton!
-       @IBOutlet weak var clock1: UILabel!
+       @IBOutlet weak var clock: UILabel!
+    
+    //MARK: - VARIABLES
+    var clocktimer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        showTime()
+        
+        self.clocktimer =  Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(self.showTime), userInfo: nil, repeats: true)
+
     }
 
-
+    //MARK: - Methods
+    @objc func showTime() -> Void {
+        // get the current date and time
+        let currentDateTime = Date()
+        // initialize the date formatter and set the style
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .medium
+        self.clock!.text = formatter.string(from: currentDateTime)
+    }
+    
+    
+    
+    
+    
 }
 

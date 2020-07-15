@@ -87,7 +87,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="clock1" destination="jnc-wt-OCh" id="sb5-l7-3mm"/>
+                        <outlet property="clock" destination="jnc-wt-OCh" id="DgU-eU-A5C"/>
                         <outlet property="imageView" destination="a8d-Oz-E84" id="Dxd-Jj-cxp"/>
                     </connections>
                 </viewController>
