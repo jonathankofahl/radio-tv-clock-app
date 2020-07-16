@@ -183,10 +183,11 @@
         <scene sceneID="7O2-Rv-9j7">
             <objects>
                 <tableViewController id="KcY-5L-c1I" customClass="SettingsViewController" customModule="Flippy_Clock_Radio" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Zh6-Dg-vq4">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Zh6-Dg-vq4">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="973"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <sections>
                             <tableViewSection headerTitle="Streaming-URLs (Audio or Video)" id="HIW-kw-Fji">
                                 <cells>
@@ -204,11 +205,17 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="changeRadioName:" destination="KcY-5L-c1I" eventType="editingDidEnd" id="A9w-HD-FEm"/>
+                                                    </connections>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="088-Ng-Xt5">
                                                     <rect key="frame" x="200" y="0.0" width="1146" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="changeRadioLink:" destination="KcY-5L-c1I" eventType="editingDidEnd" id="bhb-mf-6bZ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -230,18 +237,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="1366" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Radio 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7AF-ro-v8j">
+                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Radio 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7AF-ro-v8j">
                                                     <rect key="frame" x="20" y="0.0" width="150" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="sDJ-Zs-2Xt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="changeRadioName:" destination="KcY-5L-c1I" eventType="editingDidEnd" id="t4S-Gi-dQH"/>
+                                                    </connections>
                                                 </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vry-2O-Dwz">
-                                                    <rect key="frame" x="200" y="0.0" width="1106" height="40"/>
+                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vry-2O-Dwz">
+                                                    <rect key="frame" x="200" y="0.0" width="1146" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="changeRadioLink:" destination="KcY-5L-c1I" eventType="editingDidEnd" id="cWx-1o-l3k"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -262,18 +275,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="1366" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Radio 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dJg-b3-ezA">
+                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Radio 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dJg-b3-ezA">
                                                     <rect key="frame" x="20" y="0.0" width="150" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="iuk-Qh-FoW"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="changeRadioName:" destination="KcY-5L-c1I" eventType="editingDidEnd" id="WyQ-nL-063"/>
+                                                    </connections>
                                                 </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lp3-vA-bVZ">
-                                                    <rect key="frame" x="200" y="0.0" width="1106" height="40"/>
+                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lp3-vA-bVZ">
+                                                    <rect key="frame" x="200" y="0.0" width="1146" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="changeRadioLink:" destination="KcY-5L-c1I" eventType="editingDidEnd" id="NrT-hM-zUS"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -300,6 +319,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mLI-ti-CNM">
                                                     <rect key="frame" x="20" y="4" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="changeDateFormat:" destination="KcY-5L-c1I" eventType="valueChanged" id="WLV-vb-ZgI"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1w-Sf-NTp">
                                                     <rect key="frame" x="94" y="9" width="83" height="21"/>
@@ -327,6 +349,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SR3-pr-DVo">
                                                     <rect key="frame" x="20" y="4" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="changeDisplayMode:" destination="KcY-5L-c1I" eventType="valueChanged" id="bjQ-Fd-cip"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dim display automatically" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N13-RR-YYh">
                                                     <rect key="frame" x="94" y="9" width="194.5" height="21"/>
@@ -358,6 +383,9 @@
                                                     <state key="normal" title="Change Picture">
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="openImages:" destination="KcY-5L-c1I" eventType="touchUpInside" id="AkW-t1-m8w"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -372,6 +400,23 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="07r-p1-UvS" id="w8e-zL-NmY">
                                             <rect key="frame" x="0.0" y="0.0" width="1366" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axp-L5-6XA">
+                                                    <rect key="frame" x="618" y="5" width="130" height="36"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <state key="normal" title="Save Settings">
+                                                        <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="saveSettings:" destination="KcY-5L-c1I" eventType="touchUpInside" id="2As-y2-q7n"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Axp-L5-6XA" firstAttribute="top" secondItem="w8e-zL-NmY" secondAttribute="top" constant="5" id="0EF-c8-cje"/>
+                                                <constraint firstItem="Axp-L5-6XA" firstAttribute="centerX" secondItem="w8e-zL-NmY" secondAttribute="centerX" id="BCV-8i-n6U"/>
+                                                <constraint firstAttribute="bottom" secondItem="Axp-L5-6XA" secondAttribute="bottom" constant="-1" id="Su8-Rj-WhR"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -382,6 +427,16 @@
                             <outlet property="delegate" destination="KcY-5L-c1I" id="yqV-0T-zxk"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="dateSwitch" destination="mLI-ti-CNM" id="UQx-iv-jNT"/>
+                        <outlet property="displaySwitch" destination="SR3-pr-DVo" id="ShU-cr-FVJ"/>
+                        <outlet property="radioLinkLabel1" destination="088-Ng-Xt5" id="sM2-kL-Yyy"/>
+                        <outlet property="radioLinkLabel2" destination="Vry-2O-Dwz" id="jy8-wR-Eun"/>
+                        <outlet property="radioLinkLabel3" destination="lp3-vA-bVZ" id="GXX-0d-dY6"/>
+                        <outlet property="radioNameLabel1" destination="N3H-ca-s70" id="38T-ZZ-FKw"/>
+                        <outlet property="radioNameLabel2" destination="7AF-ro-v8j" id="Xci-1k-ISl"/>
+                        <outlet property="radioNameLabel3" destination="dJg-b3-ezA" id="1fg-vJ-7G2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AQ-L1-lfD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

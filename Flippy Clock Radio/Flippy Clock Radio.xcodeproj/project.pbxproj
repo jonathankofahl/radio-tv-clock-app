@@ -13,6 +13,7 @@
 		1242301124BF8A6300A5296F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1242301024BF8A6300A5296F /* Assets.xcassets */; };
 		1242301424BF8A6300A5296F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1242301224BF8A6300A5296F /* LaunchScreen.storyboard */; };
 		1242301C24BF999D00A5296F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242301B24BF999D00A5296F /* SettingsViewController.swift */; };
+		12F0280D24C074CA001CE5D0 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F0280C24C074CA001CE5D0 /* HelperFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1242301324BF8A6300A5296F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1242301524BF8A6300A5296F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1242301B24BF999D00A5296F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		12F0280C24C074CA001CE5D0 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				1242300724BF8A6000A5296F /* AppDelegate.swift */,
 				1242300B24BF8A6000A5296F /* RadioViewController.swift */,
 				1242301B24BF999D00A5296F /* SettingsViewController.swift */,
+				12F0280C24C074CA001CE5D0 /* HelperFunctions.swift */,
 				1242300D24BF8A6000A5296F /* Main.storyboard */,
 				1242301024BF8A6300A5296F /* Assets.xcassets */,
 				1242301224BF8A6300A5296F /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1242301C24BF999D00A5296F /* SettingsViewController.swift in Sources */,
+				12F0280D24C074CA001CE5D0 /* HelperFunctions.swift in Sources */,
 				1242300C24BF8A6000A5296F /* RadioViewController.swift in Sources */,
 				1242300824BF8A6000A5296F /* AppDelegate.swift in Sources */,
 			);
