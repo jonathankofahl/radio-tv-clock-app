@@ -17,7 +17,7 @@ Due to the small energy impact of the iPad there is an option in the settings to
 
 * Swift 5
 * Date/Time Localization
-* AVPlayer for audio & video
+* AVFoundation for audio & video
 * Layout without Autolayout to support legacy devices with iOS 8
 
 
