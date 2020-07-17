@@ -57,7 +57,7 @@ class RadioViewController: UIViewController {
         let format = UserDefaults.standard.bool(forKey: "clockDate")
         dateFormat = format
         
-        // Clock Color
+        /// Clock Color
         self.clock!.textColor = UIColor(red: CGFloat(UserDefaults.standard.double(forKey: "fontColorRed")), green: CGFloat(UserDefaults.standard.double(forKey: "fontColorGreen")), blue: CGFloat(UserDefaults.standard.double(forKey: "fontColorBlue")), alpha: CGFloat(UserDefaults.standard.double(forKey: "fontColorAlpha")))
         
         /// Radio Streams
