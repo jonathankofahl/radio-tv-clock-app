@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1242300424BF8A6000A5296F /* Flippy Clock Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flippy Clock Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1242300424BF8A6000A5296F /* Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1242300724BF8A6000A5296F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1242300B24BF8A6000A5296F /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		1242300E24BF8A6000A5296F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		1242300524BF8A6000A5296F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1242300424BF8A6000A5296F /* Flippy Clock Radio.app */,
+				1242300424BF8A6000A5296F /* Radio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,7 +87,7 @@
 			);
 			name = "Flippy Clock Radio";
 			productName = "Flippy Clock Radio";
-			productReference = 1242300424BF8A6000A5296F /* Flippy Clock Radio.app */;
+			productReference = 1242300424BF8A6000A5296F /* Radio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -297,7 +297,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "JonathanKofahl.Flippy-Clock-Radio";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Radio;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -316,7 +316,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "JonathanKofahl.Flippy-Clock-Radio";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Radio;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
