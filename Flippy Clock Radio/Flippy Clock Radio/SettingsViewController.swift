@@ -59,6 +59,7 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate, UIImag
             self.radioNameLabel3.text = UserDefaults.standard.string(forKey: "radioName2")
         }
         
+        
     }
     
     //MARK: - CUSTOM FUNCTIONS
@@ -97,6 +98,15 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate, UIImag
     
     @IBAction func changeDateFormat(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "clockDate")
+        NotificationCenter.default.post(name: .init("update"), object: nil)
+    }
+    
+    @IBAction func changeFontColor(_ sender: UIButton) {
+        UserDefaults.standard.set(sender.backgroundColor?.components.red, forKey: "fontColorRed")
+               UserDefaults.standard.set(sender.backgroundColor?.components.green, forKey: "fontColorGreen")
+               UserDefaults.standard.set(sender.backgroundColor?.components.blue, forKey: "fontColorBlue")
+               UserDefaults.standard.set(sender.backgroundColor?.components.alpha, forKey: "fontColorAlpha")
+        NotificationCenter.default.post(name: .init("update"), object: nil)
     }
     
     @IBAction func changeDisplayMode(_ sender: UISwitch) {
@@ -104,6 +114,7 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate, UIImag
     }
     
     @IBAction func saveSettings(_ sender: Any) {
+        NotificationCenter.default.post(name: .init("update"), object: nil)
         self.dismiss(animated: true, completion: {})
     }
     
