@@ -50,6 +50,13 @@ class RadioViewController: UIViewController {
         //register Observer
         NotificationCenter.default.addObserver(self, selector: #selector(updateView), name: .init("update"), object: nil)
         
+        if (UserDefaults.standard.object(forKey: "fontColorRed") == nil) {
+            UserDefaults.standard.set(0, forKey: "fontColorRed")
+                        UserDefaults.standard.set(0, forKey: "fontColorGreen")
+                        UserDefaults.standard.set(0, forKey: "fontColorBlue")
+                        UserDefaults.standard.set(1, forKey: "fontColorAlpha")
+        }
+        
     }
     
     @objc func updateView() -> Void {
@@ -144,6 +151,7 @@ class RadioViewController: UIViewController {
             activeRadioTag = nil
             sender.setTitleColor(UIColor.white, for: UIControl.State.normal)
             self.player?.pause()
+            self.imageView.layer.sublayers = []
             return
         }
         
@@ -162,6 +170,7 @@ class RadioViewController: UIViewController {
         guard let url = URL.init(string: savedURL ?? "") else {
             sender.setTitleColor(UIColor.red, for: UIControl.State.normal)
             sender.tintColor = UIColor.red
+            self.imageView.layer.sublayers = []
             return
         }
         
@@ -196,8 +205,7 @@ class RadioViewController: UIViewController {
         player?.volume = self.volume
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = self.imageView.bounds
-        //self.imageView.layer.addSublayer(playerLayer)
-        //TODO: Videolayer einblenden
+        self.imageView.layer.addSublayer(playerLayer)
         player?.play()
         self.isPlaying = true
         UIView.animate(withDuration: 0.3, animations: ({
@@ -206,8 +214,10 @@ class RadioViewController: UIViewController {
     }
     
     @IBAction func volumeSliderAction(_ sender: UISlider) {
-        self.player?.volume = sender.value
-    }
+        if isPlaying {
+                  self.volume = sender.value
+                  MPVolumeView.setVolume(sender.value)
+              }    }
     
 }
 

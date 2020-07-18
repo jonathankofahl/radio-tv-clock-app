@@ -1,5 +1,5 @@
 //
-//  HelperFunctions.swift
+//  Extensions.swift
 //  Flippy Clock Radio
 //
 //  Created by Jonathan Kofahl on 16.07.20.
@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MediaPlayer
 
 
 func saveImage(imageName: String, image: UIImage) {
@@ -53,4 +54,28 @@ func loadImageFromDiskWith(fileName: String) -> UIImage? {
     }
     
     return nil
+}
+
+
+//MARK: Extensions
+extension UIColor {
+    var coreImageColor: CIColor {
+        return CIColor(color: self)
+    }
+    var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        let coreImageColor = self.coreImageColor
+        return (coreImageColor.red, coreImageColor.green, coreImageColor.blue, coreImageColor.alpha)
+    }
+    
+}
+
+extension MPVolumeView {
+    static func setVolume(_ volume: Float) {
+        let volumeView = MPVolumeView()
+        let slider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
+            slider?.value = volume
+        }
+    }
 }

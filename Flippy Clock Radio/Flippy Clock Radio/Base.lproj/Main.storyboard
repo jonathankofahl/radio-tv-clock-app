@@ -10,7 +10,7 @@
         <!--Radio-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Radio" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="RadioViewController" customModule="Flippy_Clock_Radio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Radio" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="RadioViewController" customModule="Radio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pga-qb-Tvz"/>
                         <viewControllerLayoutGuide type="bottom" id="RoL-Z0-kMj"/>
@@ -41,7 +41,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXv-yV-EdG">
                                                 <rect key="frame" x="198" y="0.0" width="59" height="70"/>
                                                 <state key="normal" title="Radio 1">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" red="0.92457170050761417" green="0.92457170050761417" blue="0.92457170050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                 </state>
                                                 <connections>
@@ -54,7 +54,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="0gA-3e-xBf"/>
                                                     <constraint firstAttribute="height" constant="30" id="u5v-yf-qgx"/>
                                                 </constraints>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.820566833" green="0.82068562509999998" blue="0.82054078580000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="playImage"/>
                                             </button>
                                         </subviews>
@@ -74,7 +74,7 @@
                                                 <rect key="frame" x="196" y="0.0" width="64" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <state key="normal" title="Radio 3">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" red="0.92457170050761417" green="0.92457170050761417" blue="0.92457170050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="playMedia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="unI-XX-ArX"/>
@@ -86,7 +86,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="0qA-lj-stC"/>
                                                     <constraint firstAttribute="width" constant="30" id="BM8-Ib-bpo"/>
                                                 </constraints>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.820566833" green="0.82068562509999998" blue="0.82054078580000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="playImage"/>
                                             </button>
                                         </subviews>
@@ -106,7 +106,7 @@
                                                 <rect key="frame" x="195.5" y="0.0" width="64" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <state key="normal" title="Radio 2">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" red="0.92457170050761417" green="0.92457170050761417" blue="0.92457170050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="playMedia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="htL-hC-SFW"/>
@@ -118,7 +118,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="OhR-4p-ChQ"/>
                                                     <constraint firstAttribute="height" constant="30" id="tiZ-Fh-WWM"/>
                                                 </constraints>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.820566833" green="0.82068562509999998" blue="0.82054078580000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="playImage"/>
                                             </button>
                                         </subviews>
@@ -132,7 +132,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33933005136986299" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.91745505136986305" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="fZk-hE-bz0" firstAttribute="leading" secondItem="pob-fq-YWa" secondAttribute="trailing" id="5kV-DO-6ma"/>
                                     <constraint firstItem="Kfe-xW-Xbg" firstAttribute="top" secondItem="M1O-Yv-avI" secondAttribute="top" id="7DA-DS-ipw"/>
@@ -155,18 +155,19 @@
                                 <rect key="frame" x="0.0" y="874" width="1366" height="60"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="DYj-H7-Xug">
-                                        <rect key="frame" x="536" y="22" width="254" height="16"/>
+                                        <rect key="frame" x="526" y="22" width="254" height="16"/>
                                         <color key="tintColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="bh3-4z-GLb"/>
                                         </constraints>
-                                        <color key="thumbTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="minimumTrackTintColor" red="0.49554958659999998" green="0.4965771336" blue="0.55952095459999995" alpha="0.54550513700000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="thumbTintColor" red="0.74198461085435419" green="0.7472750618844205" blue="0.76314641497461921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="volumeSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="eaO-Sh-VU8"/>
                                         </connections>
                                     </slider>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVC-tA-sPg">
-                                        <rect key="frame" x="1304" y="10" width="40" height="40"/>
+                                    <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVC-tA-sPg">
+                                        <rect key="frame" x="1296" y="10" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="T1v-I3-jIa"/>
                                             <constraint firstAttribute="width" constant="40" id="t9i-lw-s8o"/>
@@ -177,34 +178,44 @@
                                             <segue destination="ojO-G9-7K0" kind="show" id="R7b-pJ-InP"/>
                                         </connections>
                                     </button>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please save a valid URL in the Settings!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Btp-t2-4dY">
+                                        <rect key="frame" x="60" y="20" width="299" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.3393300514" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.91745505140000005" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="DYj-H7-Xug" firstAttribute="top" secondItem="Nhu-Ny-ZKC" secondAttribute="top" constant="22" id="2wQ-9d-pUg"/>
+                                    <constraint firstAttribute="bottom" secondItem="Btp-t2-4dY" secondAttribute="bottom" constant="19" id="6k0-lR-Gtj"/>
                                     <constraint firstItem="lVC-tA-sPg" firstAttribute="top" secondItem="Nhu-Ny-ZKC" secondAttribute="top" constant="10" id="Iry-FJ-nL3"/>
-                                    <constraint firstItem="DYj-H7-Xug" firstAttribute="centerX" secondItem="Nhu-Ny-ZKC" secondAttribute="centerX" constant="-20" id="NOg-pQ-sB9"/>
+                                    <constraint firstItem="DYj-H7-Xug" firstAttribute="centerX" secondItem="Nhu-Ny-ZKC" secondAttribute="centerX" constant="-30" id="NOg-pQ-sB9"/>
                                     <constraint firstAttribute="height" constant="60" id="PzL-sM-20v"/>
-                                    <constraint firstAttribute="trailing" secondItem="lVC-tA-sPg" secondAttribute="trailing" constant="22" id="azw-e8-BU8"/>
+                                    <constraint firstAttribute="trailing" secondItem="lVC-tA-sPg" secondAttribute="trailing" constant="30" id="azw-e8-BU8"/>
+                                    <constraint firstItem="Btp-t2-4dY" firstAttribute="top" secondItem="Nhu-Ny-ZKC" secondAttribute="top" constant="20" id="eBB-0T-gi5"/>
                                     <constraint firstAttribute="bottom" secondItem="lVC-tA-sPg" secondAttribute="bottom" constant="10" id="qR3-sK-mxc"/>
+                                    <constraint firstItem="Btp-t2-4dY" firstAttribute="leading" secondItem="Nhu-Ny-ZKC" secondAttribute="leading" constant="60" id="tjq-XK-ww7"/>
                                     <constraint firstAttribute="bottom" secondItem="DYj-H7-Xug" secondAttribute="bottom" constant="23" id="v1H-4B-drI"/>
+                                    <constraint firstItem="DYj-H7-Xug" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Btp-t2-4dY" secondAttribute="trailing" constant="10" id="zB1-ke-NMV"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RoL-Z0-kMj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jnc-wt-OCh" secondAttribute="bottom" constant="279" id="1hD-F8-J1k"/>
+                            <constraint firstItem="Nhu-Ny-ZKC" firstAttribute="trailing" secondItem="M1O-Yv-avI" secondAttribute="trailing" id="3NR-2R-C8N"/>
                             <constraint firstItem="M1O-Yv-avI" firstAttribute="top" secondItem="Nhu-Ny-ZKC" secondAttribute="bottom" id="4Eq-6j-Enk"/>
                             <constraint firstItem="a8d-Oz-E84" firstAttribute="bottom" secondItem="RoL-Z0-kMj" secondAttribute="top" constant="20" id="4sA-qG-sek"/>
                             <constraint firstItem="M1O-Yv-avI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6Vq-P1-g1y"/>
                             <constraint firstItem="jnc-wt-OCh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="95V-Bq-Vxa"/>
                             <constraint firstItem="a8d-Oz-E84" firstAttribute="top" secondItem="Pga-qb-Tvz" secondAttribute="bottom" constant="-30" id="DZq-E5-WwW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Nhu-Ny-ZKC" secondAttribute="trailing" constant="-20" id="Jn5-BI-Si3"/>
                             <constraint firstItem="a8d-Oz-E84" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="K06-LU-rij"/>
                             <constraint firstAttribute="trailing" secondItem="M1O-Yv-avI" secondAttribute="trailing" id="Olb-Vo-Dex"/>
                             <constraint firstAttribute="trailing" secondItem="jnc-wt-OCh" secondAttribute="trailing" constant="20" id="QOZ-N4-rUM"/>
+                            <constraint firstItem="Nhu-Ny-ZKC" firstAttribute="leading" secondItem="M1O-Yv-avI" secondAttribute="leading" id="Xxi-Ty-2bu"/>
                             <constraint firstItem="Nhu-Ny-ZKC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fFO-p6-lb9"/>
                             <constraint firstItem="jnc-wt-OCh" firstAttribute="top" secondItem="Pga-qb-Tvz" secondAttribute="bottom" constant="20" id="icg-3L-jmB"/>
-                            <constraint firstItem="Nhu-Ny-ZKC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="n1O-Oa-VcU"/>
                             <constraint firstItem="a8d-Oz-E84" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="swl-oE-e7L"/>
                             <constraint firstItem="M1O-Yv-avI" firstAttribute="bottom" secondItem="RoL-Z0-kMj" secondAttribute="top" constant="20" id="yeC-Tg-S1v"/>
                             <constraint firstItem="M1O-Yv-avI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jnc-wt-OCh" secondAttribute="bottom" constant="200" id="zum-Lq-N4b"/>
@@ -273,7 +284,7 @@
         <!--Settings View Controller-->
         <scene sceneID="7O2-Rv-9j7">
             <objects>
-                <tableViewController id="KcY-5L-c1I" customClass="SettingsViewController" customModule="Flippy_Clock_Radio" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="KcY-5L-c1I" customClass="SettingsViewController" customModule="Radio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Zh6-Dg-vq4">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -389,6 +400,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="changeRadioName:" destination="KcY-5L-c1I" eventType="valueChanged" id="ai3-bW-0u9"/>
+                                                        <action selector="changeRadioName:" destination="KcY-5L-c1I" eventType="editingChanged" id="pxw-NS-P9V"/>
                                                     </connections>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="088-Ng-Xt5">
@@ -397,6 +409,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="changeRadioLink:" destination="KcY-5L-c1I" eventType="valueChanged" id="6ta-zm-auk"/>
+                                                        <action selector="changeRadioLink:" destination="KcY-5L-c1I" eventType="editingChanged" id="JED-ce-UDO"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -427,6 +440,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="changeRadioName:" destination="KcY-5L-c1I" eventType="editingChanged" id="Qb2-Ic-Bk7"/>
                                                         <action selector="changeRadioName:" destination="KcY-5L-c1I" eventType="valueChanged" id="z7z-ix-OuW"/>
                                                     </connections>
                                                 </textField>
@@ -436,6 +450,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="changeRadioLink:" destination="KcY-5L-c1I" eventType="valueChanged" id="HEH-S5-1In"/>
+                                                        <action selector="changeRadioLink:" destination="KcY-5L-c1I" eventType="editingChanged" id="QMu-wJ-qbH"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -466,6 +481,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="changeRadioName:" destination="KcY-5L-c1I" eventType="valueChanged" id="36Q-9m-tA5"/>
+                                                        <action selector="changeRadioName:" destination="KcY-5L-c1I" eventType="editingChanged" id="LQ3-Wt-pvt"/>
                                                     </connections>
                                                 </textField>
                                                 <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lp3-vA-bVZ">
@@ -473,6 +489,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="changeRadioLink:" destination="KcY-5L-c1I" eventType="editingChanged" id="c9K-0H-lfD"/>
                                                         <action selector="changeRadioLink:" destination="KcY-5L-c1I" eventType="valueChanged" id="uOT-mW-JWF"/>
                                                     </connections>
                                                 </textField>
