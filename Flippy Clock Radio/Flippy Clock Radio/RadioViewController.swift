@@ -25,6 +25,7 @@ class RadioViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var clock: UILabel!
+    @IBOutlet weak var hintLabel: UILabel!
     
     //MARK: - VARIABLES
     var clockTimer: Timer?
@@ -38,11 +39,19 @@ class RadioViewController: UIViewController {
     var radioURL3: String?
     var activeRadioTag: Int?
     var volume: Float = 0.5
+    var buttons: [UIButton] = []
+    var playButtons: [UIButton] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateView()
+        self.showTime()
+        
+        buttons = [button1, button2, button3]
+        playButtons = [playButton1, playButton2, playButton3]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        updateView()
         
         /// refreseh clock
         self.clockTimer =  Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.showTime), userInfo: nil, repeats: true)
@@ -131,7 +140,7 @@ class RadioViewController: UIViewController {
     
     
     @objc func wakeUpDisplay() -> Void {
-        UIScreen.main.brightness = CGFloat(0.7)
+        UIScreen.main.brightness = CGFloat(0.5)
         self.displayTimer?.invalidate()
         self.displayTimer =  Timer.scheduledTimer(timeInterval: 3600.0, target: self, selector: #selector(self.dimDisplay), userInfo: nil, repeats: true)
     }
@@ -146,10 +155,13 @@ class RadioViewController: UIViewController {
     //MARK: Radio Methods
     @IBAction func playMedia(_ sender: UIButton) {
         
-        ///check if button is active
+        hintLabel.isHidden = true
+        
+        ///stop radio
         if activeRadioTag == sender.tag {
             activeRadioTag = nil
-            sender.setTitleColor(UIColor.white, for: UIControl.State.normal)
+            buttons[sender.tag].setTitleColor(UIColor.white, for: UIControl.State.normal)
+            playButtons[sender.tag].setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
             self.player?.pause()
             self.imageView.layer.sublayers = []
             return
@@ -167,32 +179,35 @@ class RadioViewController: UIViewController {
             break
         }
         
+        button1.setTitleColor(UIColor.white, for: UIControl.State.normal)
+            button2.setTitleColor(UIColor.white, for: UIControl.State.normal)
+            button3.setTitleColor(UIColor.white, for: UIControl.State.normal)
+            playButton1.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+            playButton2.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+            playButton3.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+        
+        /// handle invalid URL
         guard let url = URL.init(string: savedURL ?? "") else {
-            sender.setTitleColor(UIColor.red, for: UIControl.State.normal)
-            sender.tintColor = UIColor.red
+            buttons[sender.tag].setTitleColor(UIColor.red, for: UIControl.State.normal)
+            playButtons[sender.tag].setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
             self.imageView.layer.sublayers = []
+            self.hintLabel.isHidden = false
+            self.player?.pause()
             return
         }
         
-        button1.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        button2.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        button3.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        playButton1.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-        playButton2.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-        playButton3.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-        
         switch sender.tag {
         case 0:
-            button1.setTitleColor(UIColor.green, for: UIControl.State.normal)
+            button1.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: UIControl.State.normal)
             playButton1.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
             
         case 1:
-            button2.setTitleColor(UIColor.green, for: UIControl.State.normal)
-            playButton1.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
+            button2.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: UIControl.State.normal)
+            playButton2.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
             
         case 2:
-            button3.setTitleColor(UIColor.green, for: UIControl.State.normal)
-            playButton1.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
+            button3.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: UIControl.State.normal)
+            playButton3.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
             
         default:
             break
