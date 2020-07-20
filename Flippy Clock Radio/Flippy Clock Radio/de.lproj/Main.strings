@@ -1,0 +1,75 @@
+
+/* Class = "UITextField"; placeholder = "URL"; ObjectID = "088-Ng-Xt5"; */
+"088-Ng-Xt5.placeholder" = "URL";
+
+/* Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "1uW-eC-F4E"; */
+"1uW-eC-F4E.headerTitle" = "Einstellungen";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "6I0-VU-BmH"; */
+"6I0-VU-BmH.normalTitle" = "Weiter";
+
+/* Class = "UITextField"; placeholder = "Radio 2"; ObjectID = "7AF-ro-v8j"; */
+"7AF-ro-v8j.placeholder" = "Radio 2";
+
+/* Class = "UIButton"; normalTitle = "Radio 2"; ObjectID = "96h-QT-NqS"; */
+"96h-QT-NqS.normalTitle" = "Radio 2";
+
+/* Class = "UILabel"; text = "Before you can start listen, the only thing you need to do is to enter a valid Radio- or TV-Stream URL/Link/Adress in the Settings."; ObjectID = "9Wo-5c-v5a"; */
+"9Wo-5c-v5a.text" = "Um einen Radio oder TV-Sender zu starten hinterlege bitte die URL/Adresse in den Einstellungen.";
+
+/* Class = "UILabel"; text = "Show Date"; ObjectID = "A1w-Sf-NTp"; */
+"A1w-Sf-NTp.text" = "Datum anzeigen";
+
+/* Class = "UIButton"; normalTitle = "Save Settings"; ObjectID = "Axp-L5-6XA"; */
+"Axp-L5-6XA.normalTitle" = "Speichern";
+
+/* Class = "UIViewController"; title = "Radio"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "Radio";
+
+/* Class = "UILabel"; text = "Please save a valid URL in the Settings!"; ObjectID = "Btp-t2-4dY"; */
+"Btp-t2-4dY.text" = "Bitte hinterlege eine gültige HTTPS-Adresse!";
+
+/* Class = "UIButton"; normalTitle = "Radio 1"; ObjectID = "CXv-yV-EdG"; */
+"CXv-yV-EdG.normalTitle" = "Radio 1";
+
+/* Class = "UITableViewSection"; headerTitle = "Streaming-URLs (Audio or Video)"; ObjectID = "HIW-kw-Fji"; */
+"HIW-kw-Fji.headerTitle" = "Streaming-URLs (Audio oder Video)";
+
+/* Class = "UILabel"; text = "Dim display automatically"; ObjectID = "N13-RR-YYh"; */
+"N13-RR-YYh.text" = "Helligkeit automatisch dimmen";
+
+/* Class = "UITextField"; placeholder = "Radio 1"; ObjectID = "N3H-ca-s70"; */
+"N3H-ca-s70.placeholder" = "Radio 1";
+
+/* Class = "UILabel"; text = "Thanks for using!"; ObjectID = "QJ5-g0-eLY"; */
+"QJ5-g0-eLY.text" = "Danke fürs installieren!";
+
+/* Class = "UIButton"; normalTitle = "Radio 3"; ObjectID = "TQo-Hc-rEa"; */
+"TQo-Hc-rEa.normalTitle" = "Radio 3";
+
+/* Class = "UITextField"; placeholder = "URL"; ObjectID = "Vry-2O-Dwz"; */
+"Vry-2O-Dwz.placeholder" = "URL";
+
+/* Class = "UITableViewSection"; headerTitle = "Change Clock Color"; ObjectID = "Z0h-rF-oZQ"; */
+"Z0h-rF-oZQ.headerTitle" = "Farbe der Uhranzeige ändern";
+
+/* Class = "UITextField"; placeholder = "Radio 3"; ObjectID = "dJg-b3-ezA"; */
+"dJg-b3-ezA.placeholder" = "Radio 3";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "dLv-cL-OJQ"; */
+"dLv-cL-OJQ.text" = "Willkommen";
+
+/* Class = "UILabel"; text = "This is a simple App. In the below screenshot you see the App and the location of the Settings. "; ObjectID = "h0B-LE-IBP"; */
+"h0B-LE-IBP.text" = "Dies ist eine simple App, unten siehst du wo du die Einstellungen findest.";
+
+/* Class = "UILabel"; text = "00:00"; ObjectID = "jnc-wt-OCh"; */
+"jnc-wt-OCh.text" = "00:00";
+
+/* Class = "UITextField"; placeholder = "URL"; ObjectID = "lp3-vA-bVZ"; */
+"lp3-vA-bVZ.placeholder" = "URL";
+
+/* Class = "UIButton"; normalTitle = "white"; ObjectID = "nhB-NP-k7p"; */
+"nhB-NP-k7p.normalTitle" = "weiß";
+
+/* Class = "UIButton"; normalTitle = "Change Picture"; ObjectID = "uh4-Gb-Pdu"; */
+"uh4-Gb-Pdu.normalTitle" = "Bild ändern";

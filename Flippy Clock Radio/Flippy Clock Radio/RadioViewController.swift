@@ -43,6 +43,7 @@ class RadioViewController: UIViewController {
     var playButtons: [UIButton] = []
     
     override func viewWillAppear(_ animated: Bool) {
+        
         updateView()
         self.showTime()
         
@@ -53,6 +54,14 @@ class RadioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /// show tutorial at first app start
+        if (UserDefaults.standard.bool(forKey: "tutorialShown") != true) {
+            DispatchQueue.main.async(){
+                self.performSegue(withIdentifier: "tutorial", sender: self)
+            }
+            UserDefaults.standard.set(true, forKey: "tutorialShown")
+        }
+        
         /// refreseh clock
         self.clockTimer =  Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.showTime), userInfo: nil, repeats: true)
         
@@ -61,9 +70,9 @@ class RadioViewController: UIViewController {
         
         if (UserDefaults.standard.object(forKey: "fontColorRed") == nil) {
             UserDefaults.standard.set(0, forKey: "fontColorRed")
-                        UserDefaults.standard.set(0, forKey: "fontColorGreen")
-                        UserDefaults.standard.set(0, forKey: "fontColorBlue")
-                        UserDefaults.standard.set(1, forKey: "fontColorAlpha")
+            UserDefaults.standard.set(0, forKey: "fontColorGreen")
+            UserDefaults.standard.set(0, forKey: "fontColorBlue")
+            UserDefaults.standard.set(1, forKey: "fontColorAlpha")
         }
         
     }
@@ -99,8 +108,8 @@ class RadioViewController: UIViewController {
         
         ///set displayMode
         if (UserDefaults.standard.object(forKey: "displayMode") != nil) {
-                  self.shouldSleep = UserDefaults.standard.bool(forKey: "displayMode")
-              }
+            self.shouldSleep = UserDefaults.standard.bool(forKey: "displayMode")
+        }
         
         ///set BackgroundImage
         self.imageView.image = loadImageFromDiskWith(fileName: "image.png") ?? UIImage(named: "sample_background")
@@ -180,11 +189,11 @@ class RadioViewController: UIViewController {
         }
         
         button1.setTitleColor(UIColor.white, for: UIControl.State.normal)
-            button2.setTitleColor(UIColor.white, for: UIControl.State.normal)
-            button3.setTitleColor(UIColor.white, for: UIControl.State.normal)
-            playButton1.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-            playButton2.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-            playButton3.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+        button2.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        button3.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        playButton1.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+        playButton2.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+        playButton3.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
         
         /// handle invalid URL
         guard let url = URL.init(string: savedURL ?? "") else {
@@ -230,9 +239,9 @@ class RadioViewController: UIViewController {
     
     @IBAction func volumeSliderAction(_ sender: UISlider) {
         if isPlaying {
-                  self.volume = sender.value
-                  MPVolumeView.setVolume(sender.value)
-              }    }
+            self.volume = sender.value
+            MPVolumeView.setVolume(sender.value)
+        }    }
     
 }
 

@@ -69,7 +69,10 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate, UIImag
     }
     
     @IBAction func changeRadioLink(_ sender: UITextField) {
-        UserDefaults.standard.set(sender.text, forKey: "radioLink"+sender.tag.description)
+        let index = sender.text!.index(sender.text!.endIndex, offsetBy: -5)
+        let mySubstring = sender.text![index...]
+        let link = "https" + mySubstring
+        UserDefaults.standard.set(link, forKey: "radioLink"+sender.tag.description)
     }
     
     @IBAction func openImages(_ sender: UIButton) {
