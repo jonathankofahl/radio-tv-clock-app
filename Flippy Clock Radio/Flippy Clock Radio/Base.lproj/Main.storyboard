@@ -22,7 +22,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CX2-Qg-l7z">
                                 <rect key="frame" x="0.0" y="0.0" width="712" height="984"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" image="Screenshot" translatesAutoresizingMaskIntoConstraints="NO" id="rYr-ZC-3Yb">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" image="tutorial_screenshot" translatesAutoresizingMaskIntoConstraints="NO" id="rYr-ZC-3Yb">
                                         <rect key="frame" x="106" y="176" width="500" height="300"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="NUN-3G-Bej"/>
@@ -77,7 +77,7 @@
                                             <color key="titleColor" red="0.3923499359" green="0.69755314089999998" blue="0.60937851350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" id="b40-Pl-CZe"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="b40-Pl-CZe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -151,7 +151,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="455.5" height="90"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXv-yV-EdG">
-                                                <rect key="frame" x="228" y="0.0" width="59" height="70"/>
+                                                <rect key="frame" x="229" y="0.0" width="57" height="70"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <state key="normal" title="Radio 1">
                                                     <color key="titleColor" red="0.92457170050761417" green="0.92457170050761417" blue="0.92457170050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
@@ -161,7 +162,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vv-nJ-kLN">
-                                                <rect key="frame" x="169" y="13.5" width="43" height="43"/>
+                                                <rect key="frame" x="170" y="13.5" width="43" height="43"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="43" id="0gA-3e-xBf"/>
                                                     <constraint firstAttribute="height" constant="43" id="u5v-yf-qgx"/>
@@ -186,8 +187,8 @@
                                         <rect key="frame" x="910.5" y="0.0" width="455.5" height="90"/>
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQo-Hc-rEa">
-                                                <rect key="frame" x="226" y="0.0" width="64" height="70"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                <rect key="frame" x="228" y="0.0" width="60" height="70"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <state key="normal" title="Radio 3">
                                                     <color key="titleColor" red="0.92457170050761417" green="0.92457170050761417" blue="0.92457170050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -196,7 +197,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFc-7t-ECc">
-                                                <rect key="frame" x="167" y="13.5" width="43" height="43"/>
+                                                <rect key="frame" x="169" y="13.5" width="43" height="43"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="43" id="0qA-lj-stC"/>
                                                     <constraint firstAttribute="width" constant="43" id="BM8-Ib-bpo"/>
@@ -221,8 +222,8 @@
                                         <rect key="frame" x="455.5" y="0.0" width="455" height="90"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96h-QT-NqS">
-                                                <rect key="frame" x="225.5" y="0.0" width="64" height="70"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                <rect key="frame" x="227.5" y="0.0" width="60" height="70"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <state key="normal" title="Radio 2">
                                                     <color key="titleColor" red="0.92457170050761417" green="0.92457170050761417" blue="0.92457170050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -231,13 +232,13 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZz-ht-Ebc">
-                                                <rect key="frame" x="166.5" y="13.5" width="43" height="43"/>
+                                                <rect key="frame" x="168.5" y="13.5" width="43" height="43"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="43" id="OhR-4p-ChQ"/>
                                                     <constraint firstAttribute="height" constant="43" id="tiZ-Fh-WWM"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.820566833" green="0.82068562509999998" blue="0.82054078580000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="pauseImage"/>
+                                                <state key="normal" image="playImage"/>
                                                 <connections>
                                                     <action selector="playMedia:" destination="BYZ-38-t0r" eventType="touchDown" id="hcT-2f-YzG"/>
                                                 </connections>
@@ -342,6 +343,7 @@
                             <constraint firstItem="M1O-Yv-avI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jnc-wt-OCh" secondAttribute="bottom" constant="200" id="zum-Lq-N4b"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Plr-p5-YIp"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -795,12 +797,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screenshot" width="2689" height="1243"/>
         <image name="darkbutton" width="777" height="321"/>
-        <image name="pauseImage" width="591" height="591"/>
         <image name="playImage" width="592" height="592"/>
-        <image name="sample_background" width="768" height="512"/>
+        <image name="sample_background" width="4272" height="2848"/>
         <image name="segmentedButton" width="776" height="321"/>
         <image name="settings" width="600" height="600"/>
+        <image name="tutorial_screenshot" width="2224" height="1668"/>
     </resources>
 </document>

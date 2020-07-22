@@ -69,6 +69,9 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate, UIImag
     }
     
     @IBAction func changeRadioLink(_ sender: UITextField) {
+        if sender.text!.count < 6 {
+            return
+        }
         let index = sender.text!.index(sender.text!.endIndex, offsetBy: -5)
         let mySubstring = sender.text![index...]
         let link = "https" + mySubstring
