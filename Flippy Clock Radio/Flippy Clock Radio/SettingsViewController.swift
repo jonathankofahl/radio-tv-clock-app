@@ -109,9 +109,9 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate, UIImag
     
     @IBAction func changeFontColor(_ sender: UIButton) {
         UserDefaults.standard.set(sender.backgroundColor?.components.red, forKey: "fontColorRed")
-               UserDefaults.standard.set(sender.backgroundColor?.components.green, forKey: "fontColorGreen")
-               UserDefaults.standard.set(sender.backgroundColor?.components.blue, forKey: "fontColorBlue")
-               UserDefaults.standard.set(sender.backgroundColor?.components.alpha, forKey: "fontColorAlpha")
+        UserDefaults.standard.set(sender.backgroundColor?.components.green, forKey: "fontColorGreen")
+        UserDefaults.standard.set(sender.backgroundColor?.components.blue, forKey: "fontColorBlue")
+        UserDefaults.standard.set(sender.backgroundColor?.components.alpha, forKey: "fontColorAlpha")
         NotificationCenter.default.post(name: .init("update"), object: nil)
     }
     

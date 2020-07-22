@@ -9,15 +9,15 @@
 import UIKit
 
 class TutorialViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     // MARK: - Navigation
-
+    
     @IBAction func endTutorial(_ sender: Any) {
         self.dismiss(animated: true, completion: {})
     }
-
+    
 }
