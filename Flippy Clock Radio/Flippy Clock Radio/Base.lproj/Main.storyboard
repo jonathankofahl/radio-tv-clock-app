@@ -284,7 +284,7 @@
                                             <constraint firstAttribute="width" constant="250" id="bh3-4z-GLb"/>
                                         </constraints>
                                         <color key="minimumTrackTintColor" red="0.66808534978242529" green="0.67284888904620987" blue="0.68713950683756342" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="thumbTintColor" red="0.57611674069999996" green="0.76744526619999998" blue="0.66578882930000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="thumbTintColor" red="0.80567893401015223" green="0.79844838424665854" blue="0.80162336276111013" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="volumeSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="eaO-Sh-VU8"/>
                                         </connections>
@@ -298,7 +298,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="settings"/>
                                         <connections>
-                                            <segue destination="ojO-G9-7K0" kind="show" id="R7b-pJ-InP"/>
+                                            <action selector="showSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uuY-a2-PGl"/>
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please save a valid URL in the Settings!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Btp-t2-4dY">
@@ -326,7 +326,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RoL-Z0-kMj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jnc-wt-OCh" secondAttribute="bottom" constant="100" id="1hD-F8-J1k"/>
                             <constraint firstItem="Nhu-Ny-ZKC" firstAttribute="trailing" secondItem="M1O-Yv-avI" secondAttribute="trailing" id="3NR-2R-C8N"/>
                             <constraint firstItem="M1O-Yv-avI" firstAttribute="top" secondItem="Nhu-Ny-ZKC" secondAttribute="bottom" id="4Eq-6j-Enk"/>
                             <constraint firstItem="a8d-Oz-E84" firstAttribute="bottom" secondItem="RoL-Z0-kMj" secondAttribute="top" constant="20" id="4sA-qG-sek"/>
@@ -341,7 +340,7 @@
                             <constraint firstItem="jnc-wt-OCh" firstAttribute="top" secondItem="Pga-qb-Tvz" secondAttribute="bottom" constant="20" id="icg-3L-jmB"/>
                             <constraint firstItem="a8d-Oz-E84" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="swl-oE-e7L"/>
                             <constraint firstItem="M1O-Yv-avI" firstAttribute="bottom" secondItem="RoL-Z0-kMj" secondAttribute="top" constant="20" id="yeC-Tg-S1v"/>
-                            <constraint firstItem="M1O-Yv-avI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jnc-wt-OCh" secondAttribute="bottom" constant="200" id="zum-Lq-N4b"/>
+                            <constraint firstItem="M1O-Yv-avI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jnc-wt-OCh" secondAttribute="bottom" constant="20" id="zum-Lq-N4b"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Plr-p5-YIp"/>
@@ -362,6 +361,7 @@
                         <outlet property="slider" destination="DYj-H7-Xug" id="GoA-E1-VnS"/>
                         <outlet property="sliderView" destination="Nhu-Ny-ZKC" id="z9Z-az-RE1"/>
                         <segue destination="kmh-p7-mTC" kind="showDetail" identifier="tutorial" id="js4-74-ipM"/>
+                        <segue destination="ojO-G9-7K0" kind="show" identifier="showSettings" id="MWS-KG-MzU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -657,28 +657,28 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLG-i9-PhJ">
                                                     <rect key="frame" x="171" y="0.0" width="170.5" height="30"/>
-                                                    <color key="backgroundColor" red="1.6018515230000001e-07" green="0.46245932579999999" blue="0.72913664580000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.5474410299822956" blue="0.87170843908629436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="changeFontColor:" destination="KcY-5L-c1I" eventType="touchUpInside" id="7gg-9x-ps6"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7z-Tx-qf4">
                                                     <rect key="frame" x="341.5" y="0.0" width="171" height="30"/>
-                                                    <color key="backgroundColor" red="0.93467003110000002" green="0.67806196210000003" blue="0.38669008020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="1" green="0.76793322147467991" blue="0.12459143355425284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="changeFontColor:" destination="KcY-5L-c1I" eventType="touchUpInside" id="x2p-SN-fvZ"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU2-ky-6UV">
                                                     <rect key="frame" x="512.5" y="0.0" width="170.5" height="30"/>
-                                                    <color key="backgroundColor" red="0.36862745099999999" green="0.69803921570000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.46745299501435683" green="0.92595970812182737" blue="0.66077776951753786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="changeFontColor:" destination="KcY-5L-c1I" eventType="touchUpInside" id="RlV-cm-yld"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLp-qX-e4g">
                                                     <rect key="frame" x="683" y="0.0" width="171" height="30"/>
-                                                    <color key="backgroundColor" red="0.62195480510000001" green="0.27653249680000003" blue="0.24769691529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.83009646119137059" green="0.36370792603869767" blue="0.33260006447107326" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="changeFontColor:" destination="KcY-5L-c1I" eventType="touchUpInside" id="8uB-Kg-8Tu"/>
                                                     </connections>

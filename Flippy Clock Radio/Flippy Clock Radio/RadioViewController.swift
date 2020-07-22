@@ -5,6 +5,7 @@
 //  Created by Jonathan Kofahl on 15.07.20.
 //  Copyright © 2020 JonathanKofahl. All rights reserved.
 //
+// Main ViewController with the Player 
 
 import UIKit
 import AVFoundation
@@ -32,8 +33,10 @@ class RadioViewController: UIViewController {
     var displayTimer: Timer?
     var shouldSleep: Bool = true
     var dateFormat: Bool = true
-    var player : AVPlayer?
     var isPlaying: Bool = false
+    var player : AVPlayer?
+    /// instantiate a singleton MPVolumeView used everytime the user change the system-volume
+    let volumeView = MPVolumeView()
     var radioURL1: String?
     var radioURL2: String?
     var radioURL3: String?
@@ -65,7 +68,7 @@ class RadioViewController: UIViewController {
         /// refreseh clock
         self.clockTimer =  Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.showTime), userInfo: nil, repeats: true)
         
-        //register Observer
+        /// register Observer
         NotificationCenter.default.addObserver(self, selector: #selector(updateView), name: .init("update"), object: nil)
         
         if (UserDefaults.standard.object(forKey: "fontColorRed") == nil) {
@@ -160,8 +163,23 @@ class RadioViewController: UIViewController {
         }
     }
     
+    @IBAction func showSettings(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "showSettings", sender: self)
+    }
+    
     
     //MARK: Radio Methods
+    func resetPlayer() -> Void {
+        player?.pause()
+        button1.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        button2.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        button3.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        playButton1.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+        playButton2.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+        playButton3.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+    }
+    
     @IBAction func playMedia(_ sender: UIButton) {
         
         hintLabel.isHidden = true
@@ -188,12 +206,7 @@ class RadioViewController: UIViewController {
             break
         }
         
-        button1.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        button2.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        button3.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        playButton1.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-        playButton2.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-        playButton3.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+        self.resetPlayer()
         
         /// handle invalid URL
         guard let url = URL.init(string: savedURL ?? "") else {
@@ -244,15 +257,13 @@ class RadioViewController: UIViewController {
         } catch {
             print(error)
         }
-        UIView.animate(withDuration: 0.3, animations: ({
-            self.slider.alpha = 1.0
-        }))
+        
     }
     
     @IBAction func volumeSliderAction(_ sender: UISlider) {
         if isPlaying {
             self.volume = sender.value
-            MPVolumeView.setVolume(sender.value)
+            MPVolumeView.setVolume(sender.value, volumeView: volumeView)
         }    }
     
 }

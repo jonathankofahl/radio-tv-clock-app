@@ -5,6 +5,7 @@
 //  Created by Jonathan Kofahl on 22.07.20.
 //  Copyright © 2020 JonathanKofahl. All rights reserved.
 //
+// TutorialViewController with short introduction to the app, shown at first app launch. 
 
 import UIKit
 

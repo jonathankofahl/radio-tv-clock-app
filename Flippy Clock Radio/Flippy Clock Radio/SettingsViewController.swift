@@ -5,6 +5,7 @@
 //  Created by Jonathan Kofahl on 15.07.20.
 //  Copyright © 2020 JonathanKofahl. All rights reserved.
 //
+// SettingsViewController to store some persistent user settings
 
 import UIKit
 import AVFoundation

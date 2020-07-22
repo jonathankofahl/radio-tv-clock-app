@@ -5,6 +5,7 @@
 //  Created by Jonathan Kofahl on 16.07.20.
 //  Copyright © 2020 JonathanKofahl. All rights reserved.
 //
+// Some global helper functions & Extensions
 
 import Foundation
 import UIKit
@@ -12,7 +13,6 @@ import MediaPlayer
 
 
 func saveImage(imageName: String, image: UIImage) {
-    
     
     guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
     
@@ -28,7 +28,6 @@ func saveImage(imageName: String, image: UIImage) {
         } catch let removeError {
             print("couldn't remove file at path", removeError)
         }
-        
     }
     
     do {
@@ -70,8 +69,7 @@ extension UIColor {
 }
 
 extension MPVolumeView {
-    static func setVolume(_ volume: Float) {
-        let volumeView = MPVolumeView()
+    static func setVolume(_ volume: Float, volumeView: MPVolumeView) {
         let slider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
