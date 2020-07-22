@@ -232,6 +232,18 @@ class RadioViewController: UIViewController {
         self.imageView.layer.addSublayer(playerLayer)
         player?.play()
         self.isPlaying = true
+        
+    
+        do {
+            if #available(iOS 10.0, *) {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.allowAirPlay])
+            } else {
+                // Fallback on earlier versions without AirPlay
+            }
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print(error)
+        }
         UIView.animate(withDuration: 0.3, animations: ({
             self.slider.alpha = 1.0
         }))

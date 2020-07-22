@@ -72,7 +72,7 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate, UIImag
         if sender.text!.count < 6 {
             return
         }
-        let index = sender.text!.index(sender.text!.endIndex, offsetBy: -5)
+        let index = sender.text!.index(sender.text!.startIndex, offsetBy: 5)
         let mySubstring = sender.text![index...]
         let link = "https" + mySubstring
         UserDefaults.standard.set(link, forKey: "radioLink"+sender.tag.description)
