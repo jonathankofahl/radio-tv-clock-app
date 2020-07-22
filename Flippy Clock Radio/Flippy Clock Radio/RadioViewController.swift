@@ -71,12 +71,30 @@ class RadioViewController: UIViewController {
         /// register Observer
         NotificationCenter.default.addObserver(self, selector: #selector(updateView), name: .init("update"), object: nil)
         
+        /// init color values
         if (UserDefaults.standard.object(forKey: "fontColorRed") == nil) {
             UserDefaults.standard.set(0, forKey: "fontColorRed")
             UserDefaults.standard.set(0, forKey: "fontColorGreen")
             UserDefaults.standard.set(0, forKey: "fontColorBlue")
             UserDefaults.standard.set(1, forKey: "fontColorAlpha")
         }
+        
+        /// register system media controls
+         UIApplication.shared.beginReceivingRemoteControlEvents()
+           let commandCenter = MPRemoteCommandCenter.shared()
+
+           commandCenter.pauseCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+               //Update your button here for the pause command
+            self.playMedia(self.buttons[self.activeRadioTag!])
+               return .success
+           }
+
+           commandCenter.playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+               //Update your button here for the play command
+            self.playMedia(self.buttons[UserDefaults.standard.integer(forKey: "lastPlayedRadio")])
+               return .success
+           }
+
         
     }
     
@@ -245,7 +263,8 @@ class RadioViewController: UIViewController {
         self.imageView.layer.addSublayer(playerLayer)
         player?.play()
         self.isPlaying = true
-        
+        UserDefaults.standard.set(sender.tag, forKey: "lastPlayedRadio")
+
         
         do {
             if #available(iOS 10.0, *) {
