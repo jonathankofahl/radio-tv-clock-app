@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tutorial View Controller-->
         <scene sceneID="ca8-YB-Tm0">
             <objects>
-                <viewController id="kmh-p7-mTC" sceneMemberID="viewController">
+                <viewController id="kmh-p7-mTC" customClass="TutorialViewController" customModule="Radio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oh4-Rr-sWP"/>
                         <viewControllerLayoutGuide type="bottom" id="A5s-XD-veI"/>
@@ -39,7 +39,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wo-5c-v5a">
-                                        <rect key="frame" x="33.5" y="484" width="645.5" height="50"/>
+                                        <rect key="frame" x="33.5" y="492" width="645.5" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="8zV-S1-yGz"/>
                                         </constraints>
@@ -58,7 +58,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for using!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJ5-g0-eLY">
-                                        <rect key="frame" x="33.5" y="542" width="645.5" height="20"/>
+                                        <rect key="frame" x="33.5" y="550" width="645.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="jhe-UT-Zvg"/>
                                         </constraints>
@@ -67,7 +67,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6I0-VU-BmH">
-                                        <rect key="frame" x="273.5" y="579" width="165" height="74"/>
+                                        <rect key="frame" x="273.5" y="587" width="165" height="74"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="74" id="N9o-p2-sip"/>
                                             <constraint firstAttribute="width" constant="165" id="rNV-57-q3s"/>
@@ -77,12 +77,12 @@
                                             <color key="titleColor" red="0.3923499359" green="0.69755314089999998" blue="0.60937851350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="b40-Pl-CZe"/>
+                                            <action selector="endTutorial:" destination="kmh-p7-mTC" eventType="touchUpInside" id="hVO-3y-GV1"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="9Wo-5c-v5a" firstAttribute="top" secondItem="rYr-ZC-3Yb" secondAttribute="bottom" constant="8" id="2Lp-Jx-95M"/>
+                                    <constraint firstItem="9Wo-5c-v5a" firstAttribute="top" secondItem="rYr-ZC-3Yb" secondAttribute="bottom" constant="16" id="2Lp-Jx-95M"/>
                                     <constraint firstItem="9Wo-5c-v5a" firstAttribute="centerX" secondItem="CX2-Qg-l7z" secondAttribute="centerX" id="2tp-d5-JGS"/>
                                     <constraint firstItem="9Wo-5c-v5a" firstAttribute="leading" secondItem="h0B-LE-IBP" secondAttribute="leading" id="7k6-Cq-Mdz"/>
                                     <constraint firstItem="9Wo-5c-v5a" firstAttribute="trailing" secondItem="h0B-LE-IBP" secondAttribute="trailing" id="7o9-oI-wWA"/>
@@ -133,6 +133,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample_background" translatesAutoresizingMaskIntoConstraints="NO" id="a8d-Oz-E84">
                                 <rect key="frame" x="0.0" y="-30" width="1366" height="1054"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="jQW-zJ-F4J" appends="YES" id="b91-OF-rkU"/>

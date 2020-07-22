@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1234D3C024C87F1F00CCD3C1 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234D3BF24C87F1F00CCD3C1 /* TutorialViewController.swift */; };
 		1242300824BF8A6000A5296F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242300724BF8A6000A5296F /* AppDelegate.swift */; };
 		1242300C24BF8A6000A5296F /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242300B24BF8A6000A5296F /* RadioViewController.swift */; };
 		1242300F24BF8A6000A5296F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1242300D24BF8A6000A5296F /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		120BE0E224C5E8B800AD4DC2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		120BE0E324C5E8B800AD4DC2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1234D3BF24C87F1F00CCD3C1 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		1242300424BF8A6000A5296F /* Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1242300724BF8A6000A5296F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1242300B24BF8A6000A5296F /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				1242300724BF8A6000A5296F /* AppDelegate.swift */,
 				1242300B24BF8A6000A5296F /* RadioViewController.swift */,
 				1242301B24BF999D00A5296F /* SettingsViewController.swift */,
+				1234D3BF24C87F1F00CCD3C1 /* TutorialViewController.swift */,
 				12F0280C24C074CA001CE5D0 /* Extensions.swift */,
 				1242300D24BF8A6000A5296F /* Main.storyboard */,
 				1242301024BF8A6300A5296F /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			files = (
 				1242301C24BF999D00A5296F /* SettingsViewController.swift in Sources */,
 				12F0280D24C074CA001CE5D0 /* Extensions.swift in Sources */,
+				1234D3C024C87F1F00CCD3C1 /* TutorialViewController.swift in Sources */,
 				1242300C24BF8A6000A5296F /* RadioViewController.swift in Sources */,
 				1242300824BF8A6000A5296F /* AppDelegate.swift in Sources */,
 			);
