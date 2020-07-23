@@ -1,8 +1,8 @@
-# Flippy Radio Clock
+#Radio Clock
 
-For my old iPad 3 which got very slow over time and is today nearly unusable today (thanks apple) i was thinking about another usecase. My goal was to develop a minimal radio/tv app that should fullfill two points:
+For my old iPad 3 which got very slow over time and is today nearly unusable today (thanks apple) i was thinking about another usecase. My goal was to develop a minimal radio/tv app that should fulfill two points:
 
- - run smootly on the oldest iOS-Hardware as possible (XCode allows builds back to iOS 8).
+ - run smoothly on the oldest iOS-Hardware as possible (XCode11 allows builds back to iOS 8).
  - provide a very minimalisitic user interface
 
 
@@ -17,7 +17,8 @@ Due to the small energy impact of the iPad there is an option in the settings to
 
 * Swift 5
 * Date/Time Localization
-* AVFoundation for audio & video
+* Language Localization
+* AVFoundation with audio & video
 * Layout without Autolayout to support legacy devices with iOS 8
 
 

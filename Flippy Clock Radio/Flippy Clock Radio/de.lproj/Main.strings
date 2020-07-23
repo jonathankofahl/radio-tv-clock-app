@@ -1,6 +1,6 @@
 
 /* Class = "UITextField"; placeholder = "URL"; ObjectID = "088-Ng-Xt5"; */
-"088-Ng-Xt5.placeholder" = "URL";
+"088-Ng-Xt5.placeholder" = "https..";
 
 /* Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "1uW-eC-F4E"; */
 "1uW-eC-F4E.headerTitle" = "Einstellungen";
@@ -48,7 +48,7 @@
 "TQo-Hc-rEa.normalTitle" = "Radio 3";
 
 /* Class = "UITextField"; placeholder = "URL"; ObjectID = "Vry-2O-Dwz"; */
-"Vry-2O-Dwz.placeholder" = "URL";
+"Vry-2O-Dwz.placeholder" = "https..";
 
 /* Class = "UITableViewSection"; headerTitle = "Change Clock Color"; ObjectID = "Z0h-rF-oZQ"; */
 "Z0h-rF-oZQ.headerTitle" = "Farbe der Uhranzeige ändern";
@@ -60,13 +60,13 @@
 "dLv-cL-OJQ.text" = "Willkommen";
 
 /* Class = "UILabel"; text = "This is a simple App. In the below screenshot you see the App and the location of the Settings. "; ObjectID = "h0B-LE-IBP"; */
-"h0B-LE-IBP.text" = "Dies ist eine simple App, unten siehst du wo du die Einstellungen findest.";
+"h0B-LE-IBP.text" = "Dies ist eine simple App. Im Screenshot siehst du wo du die Einstellungen findest.";
 
 /* Class = "UILabel"; text = "00:00"; ObjectID = "jnc-wt-OCh"; */
 "jnc-wt-OCh.text" = "00:00";
 
 /* Class = "UITextField"; placeholder = "URL"; ObjectID = "lp3-vA-bVZ"; */
-"lp3-vA-bVZ.placeholder" = "URL";
+"lp3-vA-bVZ.placeholder" = "https..";
 
 /* Class = "UIButton"; normalTitle = "white"; ObjectID = "nhB-NP-k7p"; */
 "nhB-NP-k7p.normalTitle" = "weiß";

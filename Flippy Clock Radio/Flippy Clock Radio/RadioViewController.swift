@@ -41,7 +41,6 @@ class RadioViewController: UIViewController {
     var radioURL2: String?
     var radioURL3: String?
     var activeRadioTag: Int?
-    var volume: Float = 0.5
     var buttons: [UIButton] = []
     var playButtons: [UIButton] = []
     
@@ -94,6 +93,19 @@ class RadioViewController: UIViewController {
             self.playMedia(self.buttons[UserDefaults.standard.integer(forKey: "lastPlayedRadio")])
                return .success
            }
+        
+        /// playback options with iOS 8,9 fallback
+        do {
+                  if #available(iOS 10.0, *) {
+                      try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.allowAirPlay])
+                  } else {
+                      // Fallback on earlier versions without AirPlay
+                      try AVAudioSession.sharedInstance().setCategory(.playback)
+                  }
+                  try AVAudioSession.sharedInstance().setActive(true)
+              } catch {
+                  print(error)
+              }
 
         
     }
@@ -182,7 +194,7 @@ class RadioViewController: UIViewController {
     }
     
     @IBAction func showSettings(_ sender: Any) {
-        
+        resetPlayer()
         self.performSegue(withIdentifier: "showSettings", sender: self)
     }
     
@@ -257,7 +269,6 @@ class RadioViewController: UIViewController {
         let playerItem = AVPlayerItem.init(url: url)
         player = AVPlayer.init(playerItem: playerItem)
         self.imageView.layer.sublayers?.removeAll()
-        player?.volume = self.volume
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = self.imageView.bounds
         self.imageView.layer.addSublayer(playerLayer)
@@ -266,22 +277,10 @@ class RadioViewController: UIViewController {
         UserDefaults.standard.set(sender.tag, forKey: "lastPlayedRadio")
 
         
-        do {
-            if #available(iOS 10.0, *) {
-                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.allowAirPlay])
-            } else {
-                // Fallback on earlier versions without AirPlay
-            }
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print(error)
-        }
-        
     }
     
     @IBAction func volumeSliderAction(_ sender: UISlider) {
         if isPlaying {
-            self.volume = sender.value
             MPVolumeView.setVolume(sender.value, volumeView: volumeView)
         }    }
     
