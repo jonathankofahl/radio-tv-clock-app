@@ -1,6 +1,6 @@
-#Radio Clock
+#Radio clock
 
-For my old iPad 3 which got very slow over time and is today nearly unusable today (thanks apple) i was thinking about another usecase. My goal was to develop a minimal radio/tv app that should fulfill two points:
+For my old iPad 3 which got very slow over time and is nearly unusable today (thanks apple) i was thinking about another usecase. My goal was to develop a minimal radio/tv app that should fulfill two points:
 
  - run smoothly on the oldest iOS-Hardware as possible (XCode11 allows builds back to iOS 8).
  - provide a very minimalisitic user interface
