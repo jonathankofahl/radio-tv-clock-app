@@ -42,6 +42,8 @@
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -54,5 +56,10 @@
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+ <key>NSAppTransportSecurity</key>
+ <dict>
+     <key>NSAllowsArbitraryLoads</key>
+     <true/>
+ </dict>
 </dict>
 </plist>

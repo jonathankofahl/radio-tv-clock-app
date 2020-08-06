@@ -11,22 +11,17 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 
-class RadioViewController: UIViewController {
+class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     //MARK: - OUTLETS
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var buttonView: UIView!
-    @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var playButton1: UIButton!
-    @IBOutlet weak var playButton2: UIButton!
-    @IBOutlet weak var playButton3: UIButton!
+    @IBOutlet weak var buttonView: UICollectionView!
     @IBOutlet weak var sliderView: UIView!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var clock: UILabel!
     @IBOutlet weak var hintLabel: UILabel!
+    @IBOutlet weak var collectionViewHeightConstaint: NSLayoutConstraint!
     
     //MARK: - VARIABLES
     var clockTimer: Timer?
@@ -35,26 +30,33 @@ class RadioViewController: UIViewController {
     var dateFormat: Bool = true
     var isPlaying: Bool = false
     var player : AVPlayer?
+    var playerLayer : AVPlayerLayer?
+    
     /// instantiate a singleton MPVolumeView used everytime the user change the system-volume
     let volumeView = MPVolumeView()
     var radioURL1: String?
     var radioURL2: String?
     var radioURL3: String?
     var activeRadioTag: Int?
-    var buttons: [UIButton] = []
-    var playButtons: [UIButton] = []
     
     override func viewWillAppear(_ animated: Bool) {
+        if activeRadioTag != nil {
+            resetPlayer(shouldPause: true)
+        }
         
+        //cells = []
+        buttonView.reloadData()
+        buttonView.isUserInteractionEnabled = true
+        buttonView.delegate = self
+        buttonView.dataSource = self
+        showTime()
         updateView()
-        self.showTime()
         
-        buttons = [button1, button2, button3]
-        playButtons = [playButton1, playButton2, playButton3]
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         /// show tutorial at first app start
         if (UserDefaults.standard.bool(forKey: "tutorialShown") != true) {
@@ -65,7 +67,7 @@ class RadioViewController: UIViewController {
         }
         
         /// refreseh clock
-        self.clockTimer =  Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.showTime), userInfo: nil, repeats: true)
+        clockTimer =  Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.showTime), userInfo: nil, repeats: true)
         
         /// register Observer
         NotificationCenter.default.addObserver(self, selector: #selector(updateView), name: .init("update"), object: nil)
@@ -79,34 +81,34 @@ class RadioViewController: UIViewController {
         }
         
         /// register system media controls
-         UIApplication.shared.beginReceivingRemoteControlEvents()
-           let commandCenter = MPRemoteCommandCenter.shared()
-
-           commandCenter.pauseCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
-               //Update your button here for the pause command
-            self.playMedia(self.buttons[self.activeRadioTag!])
-               return .success
-           }
-
-           commandCenter.playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
-               //Update your button here for the play command
-            self.playMedia(self.buttons[UserDefaults.standard.integer(forKey: "lastPlayedRadio")])
-               return .success
-           }
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        let commandCenter = MPRemoteCommandCenter.shared()
+        
+        commandCenter.pauseCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            //Update your button here for the pause command
+            self.playMedia(self.activeRadioTag!)
+            return .success
+        }
+        
+        commandCenter.playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            //Update your button here for the play command
+            self.playMedia(UserDefaults.standard.integer(forKey: "lastPlayedRadio"))
+            self.activeRadioTag = UserDefaults.standard.integer(forKey: "lastPlayedRadio")
+            return .success
+        }
         
         /// playback options with iOS 8,9 fallback
         do {
-                  if #available(iOS 10.0, *) {
-                      try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.allowAirPlay])
-                  } else {
-                      // Fallback on earlier versions without AirPlay
-                      try AVAudioSession.sharedInstance().setCategory(.playback)
-                  }
-                  try AVAudioSession.sharedInstance().setActive(true)
-              } catch {
-                  print(error)
-              }
-
+            if #available(iOS 10.0, *) {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.allowAirPlay])
+            } else {
+                // Fallback on earlier versions without AirPlay
+                try AVAudioSession.sharedInstance().setCategory(.playback)
+            }
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print(error)
+        }
         
     }
     
@@ -116,36 +118,27 @@ class RadioViewController: UIViewController {
         dateFormat = format
         
         /// Clock Color
-        self.clock!.textColor = UIColor(red: CGFloat(UserDefaults.standard.double(forKey: "fontColorRed")), green: CGFloat(UserDefaults.standard.double(forKey: "fontColorGreen")), blue: CGFloat(UserDefaults.standard.double(forKey: "fontColorBlue")), alpha: CGFloat(UserDefaults.standard.double(forKey: "fontColorAlpha")))
+        clock!.textColor = UIColor(red: CGFloat(UserDefaults.standard.double(forKey: "fontColorRed")), green: CGFloat(UserDefaults.standard.double(forKey: "fontColorGreen")), blue: CGFloat(UserDefaults.standard.double(forKey: "fontColorBlue")), alpha: CGFloat(UserDefaults.standard.double(forKey: "fontColorAlpha")))
         
         /// Radio Streams
         if (UserDefaults.standard.object(forKey: "radioLink0") != nil) {
-            self.radioURL1 = UserDefaults.standard.string(forKey: "radioLink0")
+            radioURL1 = UserDefaults.standard.string(forKey: "radioLink0")
         }
         if (UserDefaults.standard.object(forKey: "radioLink1") != nil) {
-            self.radioURL2 = UserDefaults.standard.string(forKey: "radioLink1")
+            radioURL2 = UserDefaults.standard.string(forKey: "radioLink1")
         }
         if (UserDefaults.standard.object(forKey: "radioLink2") != nil) {
-            self.radioURL3 = UserDefaults.standard.string(forKey: "radioLink2")
+            radioURL3 = UserDefaults.standard.string(forKey: "radioLink2")
         }
-        /// init Radio Names
-        if (UserDefaults.standard.object(forKey: "radioName0") != nil) {
-            self.button1.setTitle(UserDefaults.standard.string(forKey: "radioName0"), for: UIControl.State.normal)
-        }
-        if (UserDefaults.standard.object(forKey: "radioName1") != nil) {
-            self.button2.setTitle(UserDefaults.standard.string(forKey: "radioName1"), for: UIControl.State.normal)
-        }
-        if (UserDefaults.standard.object(forKey: "radioName2") != nil) {
-            self.button3.setTitle(UserDefaults.standard.string(forKey: "radioName2"), for: UIControl.State.normal)
-        }
+        
         
         ///set displayMode
         if (UserDefaults.standard.object(forKey: "displayMode") != nil) {
-            self.shouldSleep = UserDefaults.standard.bool(forKey: "displayMode")
+            shouldSleep = UserDefaults.standard.bool(forKey: "displayMode")
         }
         
         ///set BackgroundImage
-        self.imageView.image = loadImageFromDiskWith(fileName: "image.png") ?? UIImage(named: "sample_background")
+        imageView.image = loadImageFromDiskWith(fileName: "image.png") ?? UIImage(named: "sample_background")
         
     }
     
@@ -160,7 +153,7 @@ class RadioViewController: UIViewController {
         if !dateFormat {
             formatter.dateStyle = .none
         }
-        self.clock!.text = formatter.string(from: currentDateTime)
+        clock!.text = formatter.string(from: currentDateTime)
     }
     
     @IBAction func tapPiece(_ gestureRecognizer : UITapGestureRecognizer ) {
@@ -194,38 +187,47 @@ class RadioViewController: UIViewController {
     }
     
     @IBAction func showSettings(_ sender: Any) {
-        resetPlayer()
+        self.hintLabel.isHidden = true
         self.performSegue(withIdentifier: "showSettings", sender: self)
     }
     
     
     //MARK: Radio Methods
-    func resetPlayer() -> Void {
-        player?.pause()
-        button1.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        button2.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        button3.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        playButton1.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-        playButton2.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-        playButton3.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+    func resetPlayer(shouldPause: Bool) -> Void {
+        if shouldPause {
+            player?.pause()
+            self.activeRadioTag = nil
+        }
+        
+        /* if cells.count > 5 {
+         cells[0].labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+         cells[1].labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+         cells[2].labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+         cells[0].playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+         cells[1].playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+         cells[2].playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+         }*/
+        
     }
     
-    @IBAction func playMedia(_ sender: UIButton) {
+    @IBAction func playMedia(_ sender: Int) {
+        
+        let cell = buttonView.visibleCells[sender] as! RadioButtonCollectionViewCell
+        
         
         hintLabel.isHidden = true
-        
         ///stop radio
-        if activeRadioTag == sender.tag {
+        if activeRadioTag == sender {
             activeRadioTag = nil
-            buttons[sender.tag].setTitleColor(UIColor.white, for: UIControl.State.normal)
-            playButtons[sender.tag].setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+            
+            
             self.player?.pause()
             self.imageView.layer.sublayers = []
             return
         }
         
         var savedURL: String?
-        switch sender.tag {
+        switch sender {
         case 0:
             savedURL = self.radioURL1
         case 1:
@@ -236,46 +238,34 @@ class RadioViewController: UIViewController {
             break
         }
         
-        self.resetPlayer()
         
         /// handle invalid URL
         guard let url = URL.init(string: savedURL ?? "") else {
-            buttons[sender.tag].setTitleColor(UIColor.red, for: UIControl.State.normal)
-            playButtons[sender.tag].setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+            cell.labelButton.setTitleColor(UIColor.red, for: UIControl.State.normal)
+            cell.playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
             self.imageView.layer.sublayers = []
             self.hintLabel.isHidden = false
             self.player?.pause()
             return
         }
         
-        switch sender.tag {
-        case 0:
-            button1.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: UIControl.State.normal)
-            playButton1.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
-            
-        case 1:
-            button2.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: UIControl.State.normal)
-            playButton2.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
-            
-        case 2:
-            button3.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: UIControl.State.normal)
-            playButton3.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
-            
-        default:
-            break
-        }
+        resetPlayer(shouldPause: true)
         
-        self.activeRadioTag = sender.tag
+        cell.labelButton.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: UIControl.State.normal)
+        cell.playButton.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
+        
+        activeRadioTag = sender
+        
         let playerItem = AVPlayerItem.init(url: url)
         player = AVPlayer.init(playerItem: playerItem)
-        self.imageView.layer.sublayers?.removeAll()
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = self.imageView.bounds
-        self.imageView.layer.addSublayer(playerLayer)
+        
+        imageView.layer.sublayers?.removeAll()
+        playerLayer = AVPlayerLayer(player: player)
+        playerLayer!.frame = self.imageView.bounds
+        imageView.layer.addSublayer(playerLayer!)
         player?.play()
-        self.isPlaying = true
-        UserDefaults.standard.set(sender.tag, forKey: "lastPlayedRadio")
-
+        isPlaying = true
+        UserDefaults.standard.set(sender, forKey: "lastPlayedRadio")
         
     }
     
@@ -284,5 +274,111 @@ class RadioViewController: UIViewController {
             MPVolumeView.setVolume(sender.value, volumeView: volumeView)
         }    }
     
+    
+    
+    //MARK: - CollectionView Methods
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Button_0", for: indexPath) as! RadioButtonCollectionViewCell
+        
+        cell.contentView.isUserInteractionEnabled = false
+        
+        print("create cell: " + indexPath.item.description)
+        
+        /// refresh values and states of buttons and images
+        cell.playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+        cell.labelButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: UIControl.State.normal)
+        
+        
+        switch indexPath.item {
+        case 0:
+            cell.labelButton.setTitle("Radio 1", for: UIControl.State.normal)
+            if (UserDefaults.standard.object(forKey: "radioName0") != nil) {
+                cell.labelButton.setTitle(UserDefaults.standard.string(forKey: "radioName0"), for: UIControl.State.normal)
+            }
+            cell.labelButton.tag = 0
+            cell.playButton.tag = 0
+        case 1:
+            cell.labelButton.setTitle("Radio 2", for: UIControl.State.normal)
+            
+            if (UserDefaults.standard.object(forKey: "radioName1") != nil) {
+                cell.labelButton.setTitle(UserDefaults.standard.string(forKey: "radioName1"), for: UIControl.State.normal)
+            }
+            cell.labelButton.tag = 1
+            cell.playButton.tag = 1
+        case 2:
+            cell.labelButton.setTitle("Radio 3", for: UIControl.State.normal)
+            
+            if (UserDefaults.standard.object(forKey: "radioName2") != nil) {
+                cell.labelButton.setTitle(UserDefaults.standard.string(forKey: "radioName2"), for: UIControl.State.normal)
+            }
+            cell.labelButton.tag = 2
+            cell.playButton.tag = 2
+        default:
+            return cell
+        }
+        
+        if activeRadioTag != nil && activeRadioTag == indexPath.item {
+            cell.playButton.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
+            cell.labelButton.setTitleColor(#colorLiteral(red: 0.3846494967, green: 0.7928894353, blue: 0.3790125482, alpha: 1), for: UIControl.State.normal)
+            print("updated cell " + indexPath.item.description)
+            print(buttonView.visibleCells.count)
+        }
+        
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if self.buttonView.bounds.size.width<600 {
+            return CGSize(width:300, height:70)
+        }
+        return CGSize(width:self.buttonView.bounds.size.width/3, height:70)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell =  collectionView.visibleCells[indexPath.item] as! RadioButtonCollectionViewCell
+        cell.labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        cell.playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+        self.playMedia(indexPath.item)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    //MARK: - Transition Methods
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        buttonView.reloadData()
+        buttonView.layoutIfNeeded()
+        resetPlayer(shouldPause: false)
+        
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if activeRadioTag != nil {
+            playerLayer!.frame = self.imageView.bounds
+        }
+        buttonView.reloadData()
+        
+    }
+    
 }
 
+//MARK: - CollectionViewCell Class
+class RadioButtonCollectionViewCell: UICollectionViewCell {
+    @IBOutlet var playButton: UIButton!
+    @IBOutlet var labelButton: UIButton!
+}

@@ -26,8 +26,8 @@
 /* Class = "UIViewController"; title = "Radio"; ObjectID = "BYZ-38-t0r"; */
 "BYZ-38-t0r.title" = "Radio";
 
-/* Class = "UILabel"; text = "Please save a valid URL in the Settings!"; ObjectID = "Btp-t2-4dY"; */
-"Btp-t2-4dY.text" = "Bitte hinterlege eine gültige Stream-Adresse!";
+/* Class = "UILabel"; text = "Please save a valid URL in the Settings!"; ObjectID = "kPA-Nx-tNl"; */
+"kPA-Nx-tNl.text" = "Bitte hinterlege eine gültige Stream-Adresse!";
 
 /* Class = "UIButton"; normalTitle = "Radio 1"; ObjectID = "CXv-yV-EdG"; */
 "CXv-yV-EdG.normalTitle" = "Radio 1";

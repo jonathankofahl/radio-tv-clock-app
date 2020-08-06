@@ -76,7 +76,8 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate, UIImag
         let index = sender.text!.index(sender.text!.startIndex, offsetBy: 5)
         let mySubstring = sender.text![index...]
         let link = "https" + mySubstring
-        UserDefaults.standard.set(link, forKey: "radioLink"+sender.tag.description)
+        let trimmed = link.trimmingCharacters(in: .whitespacesAndNewlines)
+        UserDefaults.standard.set(trimmed, forKey: "radioLink"+sender.tag.description)
     }
     
     @IBAction func openImages(_ sender: UIButton) {
