@@ -44,7 +44,6 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             resetPlayer(shouldPause: true)
         }
         
-        //cells = []
         buttonView.reloadData()
         buttonView.isUserInteractionEnabled = true
         buttonView.delegate = self
@@ -102,7 +101,7 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             if #available(iOS 10.0, *) {
                 try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.allowAirPlay])
             } else {
-                // Fallback on earlier versions without AirPlay
+                /// Fallback on earlier versions without AirPlay
                 try AVAudioSession.sharedInstance().setCategory(.playback)
             }
             try AVAudioSession.sharedInstance().setActive(true)
@@ -199,19 +198,12 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             self.activeRadioTag = nil
         }
         
-        /* if cells.count > 5 {
-         cells[0].labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
-         cells[1].labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
-         cells[2].labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
-         cells[0].playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-         cells[1].playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-         cells[2].playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
-         }*/
-        
         for index in 0...2 {
-            let cell = buttonView.cellForItem(at: IndexPath(item: index, section: 0)) as! RadioButtonCollectionViewCell
-            cell.labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
-            cell.playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+            if buttonView.cellForItem(at: IndexPath(item: index, section: 0)) != nil {
+                let cell = buttonView.cellForItem(at: IndexPath(item: index, section: 0)) as! RadioButtonCollectionViewCell
+                cell.labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+                cell.playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+            }
         }
         
     }
@@ -276,7 +268,6 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         }    }
     
     
-    
     //MARK: - CollectionView Methods
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -284,13 +275,10 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Button_0", for: indexPath) as! RadioButtonCollectionViewCell
         
         cell.contentView.isUserInteractionEnabled = false
-        
-        print("create cell: " + indexPath.item.description)
         
         /// refresh values and states of buttons and images
         cell.playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
@@ -328,10 +316,7 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         if activeRadioTag != nil && activeRadioTag == indexPath.item {
             cell.playButton.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
             cell.labelButton.setTitleColor(#colorLiteral(red: 0.3846494967, green: 0.7928894353, blue: 0.3790125482, alpha: 1), for: UIControl.State.normal)
-            print("updated cell " + indexPath.item.description)
-            print(buttonView.visibleCells.count)
         }
-        
         
         return cell
     }
@@ -348,7 +333,6 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         cell.labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         cell.playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
         self.playMedia(indexPath.item)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -363,8 +347,6 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         buttonView.reloadData()
         buttonView.layoutIfNeeded()
         resetPlayer(shouldPause: false)
-        
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -373,7 +355,6 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             playerLayer!.frame = self.imageView.bounds
         }
         buttonView.reloadData()
-        
     }
     
 }
