@@ -67,6 +67,10 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate, UIImag
     
     @IBAction func changeRadioName(_ sender: UITextField) {
         UserDefaults.standard.set(sender.text, forKey: "radioName"+sender.tag.description)
+        
+        if sender.text?.count == 0 {
+            UserDefaults.standard.set("Radio " + sender.tag.description, forKey: "radioName"+sender.tag.description)
+        }
     }
     
     @IBAction func changeRadioLink(_ sender: UITextField) {

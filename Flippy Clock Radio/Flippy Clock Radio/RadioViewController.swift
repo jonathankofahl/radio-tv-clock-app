@@ -208,20 +208,22 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
          cells[2].playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
          }*/
         
+        for index in 0...2 {
+            let cell = buttonView.cellForItem(at: IndexPath(item: index, section: 0)) as! RadioButtonCollectionViewCell
+            cell.labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+            cell.playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
+        }
+        
     }
     
     @IBAction func playMedia(_ sender: Int) {
         
-        let cell = buttonView.visibleCells[sender] as! RadioButtonCollectionViewCell
-        
+        let cell = buttonView.cellForItem(at: IndexPath(item: sender, section: 0)) as! RadioButtonCollectionViewCell
         
         hintLabel.isHidden = true
         ///stop radio
         if activeRadioTag == sender {
-            activeRadioTag = nil
-            
-            
-            self.player?.pause()
+            self.resetPlayer(shouldPause: true)
             self.imageView.layer.sublayers = []
             return
         }
@@ -238,14 +240,13 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             break
         }
         
-        
         /// handle invalid URL
         guard let url = URL.init(string: savedURL ?? "") else {
             cell.labelButton.setTitleColor(UIColor.red, for: UIControl.State.normal)
             cell.playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
             self.imageView.layer.sublayers = []
             self.hintLabel.isHidden = false
-            self.player?.pause()
+            self.resetPlayer(shouldPause: true)
             return
         }
         
@@ -336,14 +337,14 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if self.buttonView.bounds.size.width<600 {
+        if self.buttonView.bounds.size.width<500 {
             return CGSize(width:300, height:70)
         }
         return CGSize(width:self.buttonView.bounds.size.width/3, height:70)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell =  collectionView.visibleCells[indexPath.item] as! RadioButtonCollectionViewCell
+        let cell =  collectionView.cellForItem(at: indexPath) as! RadioButtonCollectionViewCell
         cell.labelButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         cell.playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
         self.playMedia(indexPath.item)
