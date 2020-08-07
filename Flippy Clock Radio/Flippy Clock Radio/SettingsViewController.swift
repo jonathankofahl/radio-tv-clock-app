@@ -127,6 +127,13 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate, UIImag
     }
     
     
+    //MARK: - TableView Delegate Methods
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.textLabel?.textColor = .white
+        }
+    }
+    
     //MARK: - helper Methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
