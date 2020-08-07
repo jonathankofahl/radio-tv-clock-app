@@ -23,7 +23,6 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate, UIImag
     @IBOutlet weak var radioLinkLabel2: UITextField!
     @IBOutlet weak var radioLinkLabel3: UITextField!
     
-    
     //MARK: - STANDARD FUNCTIONS
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -16,13 +16,14 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     //MARK: - OUTLETS
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var buttonView: UICollectionView!
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var sliderView: UIView!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var clock: UILabel!
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var collectionViewHeightConstaint: NSLayoutConstraint!
-    
+
     //MARK: - VARIABLES
     var clockTimer: Timer?
     var displayTimer: Timer?
@@ -50,7 +51,6 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         buttonView.dataSource = self
         showTime()
         updateView()
-        
     }
     
     override func viewDidLoad() {
@@ -139,6 +139,9 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         ///set BackgroundImage
         imageView.image = loadImageFromDiskWith(fileName: "image.png") ?? UIImage(named: "sample_background")
         
+        /// Refresh CollectionView
+        buttonView.reloadData()
+        buttonView.collectionViewLayout.invalidateLayout()
     }
     
     //MARK: - Methods
@@ -161,6 +164,7 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             self.buttonView.isHidden = false
             self.sliderView.isHidden = false
             self.settingsButton.isHidden = false
+            self.bottomView.isHidden = false
             wakeUpDisplay()
             return
         }
@@ -168,6 +172,7 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         self.buttonView.isHidden = true
         self.sliderView.isHidden = true
         self.settingsButton.isHidden = true
+        self.bottomView.isHidden = true
         wakeUpDisplay()
         
     }
@@ -244,7 +249,7 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         resetPlayer(shouldPause: true)
         
-        cell.labelButton.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: UIControl.State.normal)
+        cell.labelButton.setTitleColor(#colorLiteral(red: 0.6767502427, green: 0.9387968779, blue: 0.7993348241, alpha: 1), for: UIControl.State.normal)
         cell.playButton.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
         
         activeRadioTag = sender
@@ -315,7 +320,7 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         if activeRadioTag != nil && activeRadioTag == indexPath.item {
             cell.playButton.setImage(#imageLiteral(resourceName: "pauseImage"), for: UIControl.State.normal)
-            cell.labelButton.setTitleColor(#colorLiteral(red: 0.3846494967, green: 0.7928894353, blue: 0.3790125482, alpha: 1), for: UIControl.State.normal)
+            cell.labelButton.setTitleColor(#colorLiteral(red: 0.6767502427, green: 0.9387968779, blue: 0.7993348241, alpha: 1), for: UIControl.State.normal)
         }
         
         return cell
@@ -323,9 +328,12 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if self.buttonView.bounds.size.width<500 {
+            print("LAYOUT ALL THE IPHONE THINGS")
             return CGSize(width:300, height:70)
         }
-        return CGSize(width:self.buttonView.bounds.size.width/3, height:70)
+        print("LAYOUT ALL THE IPAD THINGS")
+        return CGSize(width:(self.buttonView.bounds.size.width/3)-5, height:70)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -346,6 +354,9 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         super.viewWillTransition(to: size, with: coordinator)
         buttonView.reloadData()
         buttonView.layoutIfNeeded()
+        buttonView.layoutSubviews()
+        buttonView.invalidateIntrinsicContentSize()
+        buttonView.collectionViewLayout.invalidateLayout()
         resetPlayer(shouldPause: false)
     }
     
@@ -355,6 +366,8 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             playerLayer!.frame = self.imageView.bounds
         }
         buttonView.reloadData()
+        buttonView.layoutSubviews()
+
     }
     
 }
