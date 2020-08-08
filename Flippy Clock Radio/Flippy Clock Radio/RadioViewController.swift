@@ -5,7 +5,7 @@
 //  Created by Jonathan Kofahl on 15.07.20.
 //  Copyright © 2020 JonathanKofahl. All rights reserved.
 //
-// Main ViewController with the Player 
+// Main ViewController with the Player
 
 import UIKit
 import AVFoundation
@@ -23,7 +23,7 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     @IBOutlet weak var clock: UILabel!
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var collectionViewHeightConstaint: NSLayoutConstraint!
-
+    
     //MARK: - VARIABLES
     var clockTimer: Timer?
     var displayTimer: Timer?
@@ -195,7 +195,6 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         self.performSegue(withIdentifier: "showSettings", sender: self)
     }
     
-    
     //MARK: Radio Methods
     func resetPlayer(shouldPause: Bool) -> Void {
         if shouldPause {
@@ -210,7 +209,6 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
                 cell.playButton.setImage(#imageLiteral(resourceName: "playImage"), for: UIControl.State.normal)
             }
         }
-        
     }
     
     @IBAction func playMedia(_ sender: Int) {
@@ -274,7 +272,6 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     
     //MARK: - CollectionView Methods
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
@@ -328,10 +325,8 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if self.buttonView.bounds.size.width<500 {
-            print("LAYOUT ALL THE IPHONE THINGS")
             return CGSize(width:300, height:70)
         }
-        print("LAYOUT ALL THE IPAD THINGS")
         return CGSize(width:(self.buttonView.bounds.size.width/3)-5, height:70)
         
     }
@@ -367,9 +362,8 @@ class RadioViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         }
         buttonView.reloadData()
         buttonView.layoutSubviews()
-
+        
     }
-    
 }
 
 //MARK: - CollectionViewCell Class
